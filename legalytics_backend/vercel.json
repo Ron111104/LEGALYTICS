@@ -1,21 +1,15 @@
 {
     "version": 2,
-    "builds": [
-      {
-        "src": "main.py",
-        "use": "@vercel/python"
-      }
-    ],
     "functions": {
-      "main.py": {
-        "maxDuration": 120 
-      }
+        "main.py": {
+            "runtime": "python3.9",
+            "maxDuration": 120
+        }
     },
     "routes": [
-      {
-        "src": "/(.*)",
-        "dest": "/main.py"
-      }
+        {
+            "src": "/(.*)",
+            "dest": "/main.py"
+        }
     ]
-  }
-  
+}
