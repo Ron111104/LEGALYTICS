@@ -1,0 +1,8 @@
+# NextJs
+legalytics_frontend/node_modules
+legalytics_frontend/.next
+
+# Python
+legalytics_backend/__pycache__/
+legalytics_backend/env/
+legalytics_backend/.env
