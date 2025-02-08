@@ -3,7 +3,7 @@
     "functions": {
         "main.py": {
             "runtime": "python3.9",
-            "maxDuration": 120
+            "maxDuration": 30
         }
     },
     "routes": [
