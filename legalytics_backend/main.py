@@ -1,5 +1,6 @@
 import os
-from fastapi import FastAPI
+import pdfplumber
+from fastapi import FastAPI, File, UploadFile, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from dotenv import load_dotenv
 
@@ -33,6 +34,27 @@ def read_root():
 @app.get("/api/message")
 def get_message():
     return {"message": "Hello from FastAPI!"}
+
+@app.post("/summarize")
+async def summarize_case(file: UploadFile = File(...)):
+    if not file.filename.endswith(".pdf"):
+        raise HTTPException(status_code=400, detail="Only PDF files are supported.")
+
+    try:
+        # Extract text from the PDF
+        with pdfplumber.open(file.file) as pdf:
+            text = "\n".join([page.extract_text() for page in pdf.pages if page.extract_text()])
+
+        if not text:
+            raise HTTPException(status_code=400, detail="Could not extract text from the PDF.")
+
+        # TODO: Implement an actual summarization model instead of returning raw text
+        summary = text[:1000] + "..."  # Placeholder: First 1000 chars for now
+
+        return {"summary": summary}
+
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Error processing PDF: {str(e)}")
 
 # Run the FastAPI app with uvicorn
 if __name__ == "__main__":

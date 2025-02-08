@@ -26,7 +26,13 @@ export default function Navbar() {
       console.error("Logout failed:", error.message);
     }
   };
-
+  const scrollToFeatures = () => {
+    if (window.location.pathname !== "/") {
+      window.location.href = "/#features";
+    } else {
+      document.getElementById("features").scrollIntoView({ behavior: "smooth" });
+    }
+  };
   return (
     <nav className="bg-white shadow-lg py-4 px-6 flex justify-between items-center relative z-50">
       {/* Logo and Brand Name */}
@@ -38,6 +44,7 @@ export default function Navbar() {
       {/* Desktop Menu */}
       <div className="hidden md:flex space-x-6 items-center">
         <Link href="/about" className="text-gray-700 hover:text-blue-900 transition">About</Link>
+        <button onClick={scrollToFeatures} className="text-gray-700 hover:text-blue-700 transition">Features</button>
         <Link href="/case-retrieval" className="text-gray-700 hover:text-blue-900 transition">Case Retrieval</Link>
         <Link href="/bail-prediction" className="text-gray-700 hover:text-blue-900 transition">Bail Prediction</Link>
         <Link href="/case-summarization" className="text-gray-700 hover:text-blue-900 transition">Case Summarization</Link>
