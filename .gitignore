@@ -2,6 +2,7 @@
 legalytics_frontend/node_modules
 legalytics_frontend/.next
 legalytics_frontend/.env
+
 # Python
 legalytics_backend/__pycache__/
 legalytics_backend/env/
