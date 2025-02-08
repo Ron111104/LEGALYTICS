@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import { auth } from "@/auth/firebase";
-import { sendEmailVerification } from "firebase/auth";
+import { auth } from "@/auth/firebaseConfig";
+import { sendEmailVerification } from "@/auth/auth";
 import { Button } from "@/components/ui/button";
 import { Loader2 } from "lucide-react";
 
