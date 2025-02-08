@@ -6,14 +6,21 @@ from dotenv import load_dotenv
 # Load environment variables from .env file
 load_dotenv()
 
-# Get allowed origins from the .env file
-origins = os.getenv("ALLOWED_ORIGINS", "").split(",")
+# Collect all ALLOWED_ORIGIN_X variables dynamically
+origins = [
+    os.getenv("ALLOWED_ORIGIN_1"),
+    os.getenv("ALLOWED_ORIGIN_2"),
+    os.getenv("ALLOWED_ORIGIN_3"),
+]
+
+# Remove None values (in case some variables are not set)
+origins = [origin for origin in origins if origin]
 
 app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,  # Load from .env
+    allow_origins=origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
