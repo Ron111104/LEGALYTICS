@@ -36,10 +36,10 @@ export default function Navbar() {
   return (
     <nav className="bg-white shadow-lg py-4 px-6 flex justify-between items-center relative z-50">
       {/* Logo and Brand Name */}
-      <div className="flex items-center space-x-3">
-        <img src="/logo.png" alt="Legalytics Logo" className="h-10 w-auto" />
-        {/* <h1 className="text-2xl font-bold text-blue-900">Legalytics</h1> */}
-      </div>
+      <Link href="/" className="flex items-center space-x-3">
+  <img src="/logo.png" alt="Legalytics Logo" className="h-10 w-auto cursor-pointer" />
+</Link>
+
 
       {/* Desktop Menu */}
       <div className="hidden md:flex space-x-6 items-center">

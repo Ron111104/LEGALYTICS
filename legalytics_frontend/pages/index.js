@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 import { auth } from "@/auth/firebaseConfig";
 import { onAuthStateChanged } from "firebase/auth";
 import Image from "next/image";
+import Chatbot from "@/components/chatbot";  // Import the chatbot
 
 export default function Home() {
   const [user, setUser] = useState(null);
@@ -128,7 +129,7 @@ export default function Home() {
           </Link>
         )}
       </section>
-
+      <Chatbot />
       {/* Footer */}
       <footer className="bg-gray-800 text-white text-center py-6">
         <p>&copy; {new Date().getFullYear()} Legalytics. All Rights Reserved.</p>

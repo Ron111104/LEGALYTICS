@@ -45,7 +45,7 @@ export default function CaseSummarization() {
       formData.append("file", file);
 
       try {
-        const response = await axios.post("http://127.0.0.1:8000/api/summarize", formData, {
+        const response = await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_DEV}/api/summarize`, formData, {
           headers: { "Content-Type": "multipart/form-data" },
           onUploadProgress: (progressEvent) => {
             setUploadProgress((prev) => ({
