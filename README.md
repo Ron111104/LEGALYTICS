@@ -171,7 +171,7 @@ LEGALYTICS/
 1. Navigate to backend folder:
 
    ```bash
-   cd ../legalytics_backend
+   cd LEGALYTICS/legalytics_backend
    ```
 2. Create and activate Python virtual environment:
 
