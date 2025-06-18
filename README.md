@@ -237,14 +237,6 @@ LEGALYTICS/
 
 ## API Reference
 
-### Authentication Endpoints
-
-| Method | Endpoint                 | Description                      |
-| ------ | ------------------------ | -------------------------------- |
-| POST   | `/api/auth/signup`       | Register user, send email verify |
-| POST   | `/api/auth/login`        | Authenticate user, return JWT    |
-| POST   | `/api/auth/forgot`       | Send password reset email        |
-| POST   | `/api/auth/verify-email` | Verify user email token          |
 
 ### Case Retrieval Endpoints
 
